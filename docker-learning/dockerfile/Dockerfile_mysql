@@ -1,0 +1,11 @@
+FROM mysql
+MAINTAINER anhbn3@gmail.com
+
+ENV MYSQL_ROOT_PASSWORD abc13579
+ENV MYSQL_DATABASE demo
+ENV MYSQL_USER     test
+ENV MYSQL_PASSWORD test123
+RUN apt-get update && apt-get install -y apt-utils && apt-get upgrade -y && apt-get install vim -y && apt install net-tools -y && apt-get install telnet -y && apt-get install -y aspell
+RUN sed -i -e 's/Listen 80/Listen 80\nServerName localhost/' /etc/apache2/ports.conf
+
+EXPOSE 3306
